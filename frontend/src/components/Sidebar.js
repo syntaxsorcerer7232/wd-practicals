@@ -1,12 +1,12 @@
 import React from 'react';
-import { Home, Search, Library, Heart, PlusSquare, Users, TrendingUp, Settings, User } from 'lucide-react';
+import { Home, Search, Library, Heart, PlusSquare, Users, TrendingUp, Settings, User, X } from 'lucide-react';
 import { Button } from './ui/button';
 import { ScrollArea } from './ui/scroll-area';
 import { Separator } from './ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { mockUser, mockPlaylists } from '../mock/mockData';
 
-const Sidebar = ({ activeSection, setActiveSection }) => {
+const Sidebar = ({ activeSection, setActiveSection, isOpen, setIsOpen }) => {
   const mainMenuItems = [
     { id: 'home', label: 'Home', icon: Home },
     { id: 'search', label: 'Search', icon: Search },
