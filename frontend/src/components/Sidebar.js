@@ -25,17 +25,57 @@ const Sidebar = ({ activeSection, setActiveSection, isOpen, setIsOpen }) => {
     { id: 'settings', label: 'Settings', icon: Settings },
   ];
 
+  const handleItemClick = (sectionId) => {
+    setActiveSection(sectionId);
+    // Close sidebar on mobile after selection
+    if (window.innerWidth < 768) {
+      setIsOpen(false);
+    }
+  };
+
   return (
-    <div className="w-64 bg-gray-900 border-r border-gray-800 flex flex-col h-full">
-      {/* Logo */}
-      <div className="p-6 border-b border-gray-800">
-        <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">♪</span>
+    <>
+      {/* Mobile Overlay */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+      
+      {/* Sidebar */}
+      <div className={`
+        fixed md:relative top-0 left-0 h-full w-64 bg-gray-900 border-r border-gray-800 flex flex-col z-50
+        transform transition-transform duration-300 ease-in-out
+        ${isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
+      `}>
+        {/* Mobile Close Button */}
+        <div className="flex items-center justify-between p-4 md:hidden">
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">♪</span>
+            </div>
+            <h1 className="text-xl font-bold text-white">AudioStream</h1>
           </div>
-          <h1 className="text-xl font-bold text-white">AudioStream</h1>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setIsOpen(false)}
+            className="p-2 text-gray-400 hover:text-white"
+          >
+            <X className="h-5 w-5" />
+          </Button>
         </div>
-      </div>
+
+        {/* Logo - Desktop */}
+        <div className="p-6 border-b border-gray-800 hidden md:block">
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">♪</span>
+            </div>
+            <h1 className="text-xl font-bold text-white">AudioStream</h1>
+          </div>
+        </div>
 
       {/* Main Menu */}
       <div className="flex-1 flex flex-col">
