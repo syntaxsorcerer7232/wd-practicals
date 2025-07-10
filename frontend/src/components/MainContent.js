@@ -1,14 +1,30 @@
-import React from 'react';
-import HomeSection from './sections/HomeSection';
-import SearchSection from './sections/SearchSection';
-import LibrarySection from './sections/LibrarySection';
-import LikedSongsSection from './sections/LikedSongsSection';
-import ProfileSection from './sections/ProfileSection';
-import SettingsSection from './sections/SettingsSection';
-import PlaylistSection from './sections/PlaylistSection';
-import ChartsSection from './sections/ChartsSection';
+import React, { useState } from 'react';
+import { Menu } from 'lucide-react';
+import { Button } from './ui/button';
 
-const MainContent = ({ activeSection, setCurrentTrack, setIsPlaying }) => {
+const MobileHeader = ({ onMenuClick }) => {
+  return (
+    <div className="md:hidden bg-gray-900 border-b border-gray-800 p-4 flex items-center justify-between">
+      <Button
+        variant="ghost"
+        size="sm"
+        onClick={onMenuClick}
+        className="p-2 text-gray-400 hover:text-white"
+      >
+        <Menu className="h-5 w-5" />
+      </Button>
+      <div className="flex items-center space-x-2">
+        <div className="w-6 h-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+          <span className="text-white font-bold text-sm">♪</span>
+        </div>
+        <h1 className="text-lg font-bold text-white">AudioStream</h1>
+      </div>
+      <div className="w-9"></div> {/* Spacer for center alignment */}
+    </div>
+  );
+};
+
+const MainContent = ({ activeSection, setCurrentTrack, setIsPlaying, onMenuClick }) => {
   const renderSection = () => {
     switch (activeSection) {
       case 'home':
