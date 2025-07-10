@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import { Menu } from 'lucide-react';
 import { Button } from './ui/button';
+import HomeSection from './sections/HomeSection';
+import SearchSection from './sections/SearchSection';
+import LibrarySection from './sections/LibrarySection';
+import LikedSongsSection from './sections/LikedSongsSection';
+import ProfileSection from './sections/ProfileSection';
+import SettingsSection from './sections/SettingsSection';
+import PlaylistSection from './sections/PlaylistSection';
+import ChartsSection from './sections/ChartsSection';
 
 const MobileHeader = ({ onMenuClick }) => {
   return (
