@@ -91,7 +91,7 @@ const Sidebar = ({ activeSection, setActiveSection, isOpen, setIsOpen }) => {
                     ? 'bg-gray-800 text-white' 
                     : 'text-gray-400 hover:text-white hover:bg-gray-800'
                 }`}
-                onClick={() => setActiveSection(item.id)}
+                onClick={() => handleItemClick(item.id)}
               >
                 <Icon className="mr-3 h-4 w-4" />
                 {item.label}
@@ -115,7 +115,7 @@ const Sidebar = ({ activeSection, setActiveSection, isOpen, setIsOpen }) => {
                     ? 'bg-gray-800 text-white' 
                     : 'text-gray-400 hover:text-white hover:bg-gray-800'
                 }`}
-                onClick={() => setActiveSection(item.id)}
+                onClick={() => handleItemClick(item.id)}
               >
                 <Icon className="mr-3 h-4 w-4" />
                 {item.label}
@@ -138,7 +138,7 @@ const Sidebar = ({ activeSection, setActiveSection, isOpen, setIsOpen }) => {
                   key={playlist.id}
                   variant="ghost"
                   className="w-full justify-start text-left h-8 text-gray-400 hover:text-white hover:bg-gray-800 px-2"
-                  onClick={() => setActiveSection(`playlist-${playlist.id}`)}
+                  onClick={() => handleItemClick(`playlist-${playlist.id}`)}
                 >
                   <span className="truncate">{playlist.name}</span>
                 </Button>
@@ -161,7 +161,7 @@ const Sidebar = ({ activeSection, setActiveSection, isOpen, setIsOpen }) => {
                   ? 'bg-gray-800 text-white' 
                   : 'text-gray-400 hover:text-white hover:bg-gray-800'
               }`}
-              onClick={() => setActiveSection(item.id)}
+              onClick={() => handleItemClick(item.id)}
             >
               <Icon className="mr-3 h-4 w-4" />
               {item.label}
@@ -188,6 +188,7 @@ const Sidebar = ({ activeSection, setActiveSection, isOpen, setIsOpen }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
