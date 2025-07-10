@@ -51,8 +51,9 @@ const MainContent = ({ activeSection, setCurrentTrack, setIsPlaying, onMenuClick
   };
 
   return (
-    <div className="flex-1 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden">
-      <div className="h-full overflow-y-auto">
+    <div className="flex-1 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden flex flex-col">
+      <MobileHeader onMenuClick={onMenuClick} />
+      <div className="flex-1 overflow-y-auto">
         {renderSection()}
       </div>
     </div>
