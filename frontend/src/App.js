@@ -9,6 +9,7 @@ const MusicApp = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [currentTrack, setCurrentTrack] = useState(1);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <div className="h-screen bg-gray-900 text-white overflow-hidden">
@@ -17,6 +18,8 @@ const MusicApp = () => {
         <Sidebar 
           activeSection={activeSection} 
           setActiveSection={setActiveSection}
+          isOpen={isSidebarOpen}
+          setIsOpen={setIsSidebarOpen}
         />
         
         {/* Main Content */}
@@ -24,6 +27,7 @@ const MusicApp = () => {
           activeSection={activeSection}
           setCurrentTrack={setCurrentTrack}
           setIsPlaying={setIsPlaying}
+          onMenuClick={() => setIsSidebarOpen(true)}
         />
       </div>
       
