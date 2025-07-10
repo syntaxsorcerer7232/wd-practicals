@@ -33,12 +33,14 @@ const MusicApp = () => {
         </div>
       </div>
       
-      {/* Player */}
-      <Player 
-        currentTrack={currentTrack}
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
-      />
+      {/* Player - Adjust for mobile */}
+      <div className="relative z-30">
+        <Player 
+          currentTrack={currentTrack}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+        />
+      </div>
     </div>
   );
 };
