@@ -23,12 +23,14 @@ const MusicApp = () => {
         />
         
         {/* Main Content */}
-        <MainContent 
-          activeSection={activeSection}
-          setCurrentTrack={setCurrentTrack}
-          setIsPlaying={setIsPlaying}
-          onMenuClick={() => setIsSidebarOpen(true)}
-        />
+        <div className="flex-1 md:static relative">
+          <MainContent 
+            activeSection={activeSection}
+            setCurrentTrack={setCurrentTrack}
+            setIsPlaying={setIsPlaying}
+            onMenuClick={() => setIsSidebarOpen(true)}
+          />
+        </div>
       </div>
       
       {/* Player */}
